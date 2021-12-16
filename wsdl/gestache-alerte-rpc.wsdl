@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.business.formation.insee.fr.eu/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://service.business.formation.insee.fr.eu/" name="alerteServiceBean" targetNamespace="http://impl.service.business.formation.insee.fr.eu/">
+    <wsdl:import location="http://127.0.0.1:9898/gestache/alerte?wsdl=IAlerteService.wsdl" namespace="http://service.business.formation.insee.fr.eu/">
+    </wsdl:import>
+    <wsdl:binding name="alerteServiceBeanSoapBinding" type="ns1:IAlerteService">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="findAll">
+            <soap:operation soapAction="" style="rpc"/>
+            <wsdl:input name="findAll">
+                <soap:body namespace="http://service.business.formation.insee.fr.eu/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findAllResponse">
+                <soap:body namespace="http://service.business.formation.insee.fr.eu/" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="findById">
+            <soap:operation soapAction="" style="rpc"/>
+            <wsdl:input name="findById">
+                <soap:body namespace="http://service.business.formation.insee.fr.eu/" use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="findByIdResponse">
+                <soap:body namespace="http://service.business.formation.insee.fr.eu/" use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="EcolisBusinessException">
+                <soap:fault name="EcolisBusinessException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="alerteServiceBean">
+        <wsdl:port binding="tns:alerteServiceBeanSoapBinding" name="AlerteServiceImplPort">
+            <soap:address location="http://127.0.0.1:9898/gestache/alerte"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
