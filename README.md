@@ -1,3 +1,3 @@
-# Gestasoap Business
+# gestasoap-business
 
 gestasoap-business
